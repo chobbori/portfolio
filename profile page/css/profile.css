@@ -1,0 +1,560 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+em,
+i,
+address {
+    font-style: normal;
+}
+
+strong,
+b {
+    font-weight: 400;
+}
+
+img {
+    max-width: 100%;
+}
+
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 300;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.ttf') format("truetype");
+    font-display: swap;
+}
+
+
+body {
+    font-family: 'yg-jalnan';
+}
+
+
+.topBar {
+    border: 1px solid black;
+    background: #bfdff7;
+    width: 100%;
+    height: 54px;
+    display: flex;
+    justify-content: space-between;
+    /* padding: 0px 30px; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.topBarLeft {
+    /* border: 1px solid lime; */
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 60px;
+}
+
+.topLogo {
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+}
+
+.topLogo>h1 {
+    margin-right: 10px;
+}
+
+.topLogo>h1 img {
+    width: 50px;
+
+}
+
+.gnb {
+    /* border: 1px solid red; */
+    width: 190px;
+}
+
+.gnb>ul {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+}
+
+.gnb>ul>li {
+    /* display:flex;
+    align-items: center; */
+    cursor: pointer;
+}
+
+.gnb>ul li p {
+    font-family: 'TheJamsil5Bold';
+    font-weight: 700;
+}
+
+.topBarRight {
+    /* border: 1px solid blue; */
+    margin-right: 60px;
+    width: 264px;
+    height: 100%;
+}
+
+.topBarRight>ul {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topBarRight>ul>li {
+    /* width: 50px; */
+}
+
+.topBarRight>ul>.wifi {
+    width: 36px;
+}
+
+.topBarRight>ul>.battery {
+    width: 48px;
+}
+
+#date {
+    font-family: 'TheJamsil';
+
+}
+
+.main {
+    background: #f2dfe6 url(../img/background.svg ) no-repeat center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.icon {
+    /* border: 1px solid red; */
+    height: 316px;
+    position: absolute;
+    top: 130px;
+    right: 74px;
+}
+
+.icon>ul>li {
+    cursor: pointer;
+}
+
+.icon>ul>.aboutMe {
+    margin-bottom: 35px;
+}
+
+.icon img {
+    width: 126px;
+}
+
+.icon>ul>li p {
+    text-align: center;
+}
+
+.underBar {
+    /* border: 1px solid blue; */
+    width: 700px;
+    position: absolute;
+    bottom: 50px;
+    left: calc(50% - 350px);
+    z-index: 11;
+}
+
+.underBar>ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.underBar>ul>li {
+    /* flex: 1; */
+    cursor: pointer;
+}
+
+.underBar>ul>li img {
+    height: 76px;
+
+}
+
+.ballon>ul {
+    display: flex;
+}
+
+.ballon>ul>li {
+    /* display: none; */
+    width: 156px;
+    height: 72px;
+    /* left: 566px;
+    bottom: 130px; */
+    /* padding: 12px 12.8px; */
+}
+
+.ballon>ul>li>img {
+    /* border: 1px solid blue; */
+    position: relative;
+}
+
+.ballon>ul>li>h3 {
+    /* border: 1px solid red; */
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+    /* display: inline-block; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    /* transform: translateY(10px); */
+    text-align: center;
+}
+
+.ballon>ul>.ballonContact {
+    position: absolute;
+    bottom: 88px;
+    left: -41px;
+}
+
+.ballon>ul>.ballonPopup {
+    position: absolute;
+    bottom: 80px;
+    left: 84px;
+}
+
+.ballon>ul>.ballonVideo {
+    position: absolute;
+    bottom: 65px;
+    left: 208px;
+}
+
+.ballon>ul>.ballonRedesign {
+    position: absolute;
+    bottom: 68px;
+    left: 337px;
+}
+
+.ballon>ul>.ballonSkill {
+    position: absolute;
+    bottom: 79px;
+    left: 458px;
+}
+
+.ballon>ul>.ballonSetting {
+    position: absolute;
+    bottom: 82px;
+    left: 583px;
+}
+
+
+
+.underBarW {
+    /* border: 1px solid red; */
+    width: 820px;
+    height: 36px;
+    background: #fff;
+    opacity: 0.8;
+    border-radius: 50px;
+    position: absolute;
+    left: 50%;
+    bottom: 36px;
+    z-index: 10;
+    transform: translateX(-50%);
+    box-shadow: 0px 5px 10px 2px #00000024;
+}
+
+
+
+
+/* ----------------- */
+.popupFrame {
+    position: fixed;
+    z-index: 10;
+}
+
+.popupBasicStyle {
+    border: 1px solid black;
+    position: fixed;
+    left: 516px;
+    top: 224px;
+    width: 820px;
+    /* height: 506px; */
+    background: #fff;
+    border-radius: 15px;
+    user-select: none;
+}
+
+.popupStateLine {
+    border-bottom: 1px solid black;
+    height: 40px;
+    background: #bbdfff;
+    border-start-start-radius: 15px;
+    border-start-end-radius: 15px;
+    position: relative;
+    /*  drag cursor   */
+    cursor: pointer;
+}
+
+.popupBtn {
+    /* border: 1px solid red; */
+    height: 28px;
+    width: 108px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.popupBtn section {
+    border: 1px solid black;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}
+
+.popupBtn>.popupBtnClose {
+    background: #ec6a5e;
+}
+
+.popupBtn>.popupBtnClose>span {
+    width: 20px;
+    height: 1px;
+    background: #000;
+    display: block;
+    margin: 6.7px auto;
+    transform-origin: 22% center;
+    margin-top: 8px;
+    margin-right: 2px;
+}
+
+.popupBtn>.popupBtnClose>span:nth-of-type(1) {
+    transform: rotate(50deg);
+}
+
+.popupBtn>.popupBtnClose>span:nth-of-type(2) {
+    transform: rotate(-50deg);
+}
+
+.popupBtn>.popupBtnYellow {
+    background: #f4bf4f;
+}
+
+.popupBtn>.popupBtnGreen {
+    background: #61c653;
+}
+
+.popupContents {
+    padding: 80px 30px;
+    max-height: 800px;
+    overflow: auto;
+}
+
+
+
+/* welcome */
+
+.welcome .popupContents {
+    height: 240px;
+}
+
+.popupBasicStyle.welcome.off {
+    display: none;
+}
+
+.popupBasicStyle.welcome>.popupStateLine>h1 {
+    font-size: 5rem;
+    position: absolute;
+    top: 125px;
+    left: 50px;
+}
+
+.welcomeDeco {
+    width: 270px;
+    position: absolute;
+    top: -75px;
+    right: -115px;
+}
+
+.welcomeTxt {
+    font-size: 4rem;
+    display: inline;
+    vertical-align: middle;
+    border-right: .05em solid black;
+    animation: cursor 0.1s ease 0.1s;
+}
+
+/* aboutMe */
+
+
+.popupBasicStyle.popupAboutMe {
+    position: fixed;
+    top: 170px;
+    width: 900px;
+    height: 580px;
+    display: none;
+}
+
+.popupBasicStyle.popupAboutMe.on {
+    display: block;
+}
+
+.popupContents.popupAboutMe {
+    padding: 20px 10px;
+}
+
+.tabMenu {}
+
+.tabTit {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.tabTit>li {
+    width: 270px;
+    height: 51px;
+    border: 1px solid black;
+    background: #eae4d3;
+    font-size: 20px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tabTit>li>p {
+    /* border: 1px solid red; */
+    /* height: 100%; */
+    text-align: center;
+    padding: 10px;
+}
+
+.tabTit>li.on {
+    background: #dd5722;
+    color: #fff;
+}
+
+.tabDes {
+    border: 1px solid black;
+    background: #eae4d3;
+    width: 100%;
+    height: 450px;
+    display: flex;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tabDes>.iamHyein {
+    margin-left: 70px;
+}
+
+.tabDes>.iamHyein>img {
+    width: 240px;
+}
+
+.tabDes>.iamHyein>h2 {
+    font-size: 2rem;
+}
+
+.hyeinIntroduce {
+    font-size: 24px;
+    color: #dd5722;
+    margin-right: 70px;
+}
+
+.hyeinIntroduce>li {
+    border-bottom: 2px solid #dd5722;
+    margin-bottom: 30px;
+}
+
+.hyeinIntroduce>li>span {
+    border: 1px solid red;
+    color: #28241d;
+    ;
+}
+
+
+/* popup */
+
+.popupBasicStyle.popupPopup {
+    position: fixed;
+    top: 170px;
+    width: 866px;
+    height: 504px;
+    /* display: none; */
+}
+
+.popupBasicStyle.popupPopup.on {
+    /* display: block; */
+}
+
+.popupContents {
+    /* position: relative; */
+}
+
+.popupContents>.popupBackground {
+    border: 1px solid lime;
+    position: absolute;
+    top: 56px;
+    left: 0;
+}
