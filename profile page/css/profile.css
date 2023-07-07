@@ -1,42 +1,18 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+* {margin: 0;padding: 0;}
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+a {text-decoration: none;color: inherit;}
 
-ul,
-ol {
-    list-style: none;
-}
+ul,ol {list-style: none;}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
     font-size: inherit;
-    font-weight: 400;
-}
+    font-weight: 400;}
 
-em,
-i,
-address {
-    font-style: normal;
-}
+em,i,address {font-style: normal;}
 
-strong,
-b {
-    font-weight: 400;
-}
+strong,b {font-weight: 400;}
 
-img {
-    max-width: 100%;
-}
+img {max-width: 100%;}
 
 @font-face {
     font-family: 'yg-jalnan';
@@ -322,10 +298,16 @@ body {
 
 
 
+
+
 /* ----------------- */
 .popupFrame {
-    position: fixed;
+    /* position: fixed;
     z-index: 10;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%; */
 }
 
 .popupBasicStyle {
@@ -338,6 +320,8 @@ body {
     background: #fff;
     border-radius: 15px;
     user-select: none;
+    display:none;
+    z-index: 1;
 }
 
 .popupStateLine {
@@ -415,9 +399,9 @@ body {
     height: 240px;
 }
 
-.popupBasicStyle.welcome.off {
+/* .popupBasicStyle.welcome.off {
     display: none;
-}
+} */
 
 .popupBasicStyle.welcome>.popupStateLine>h1 {
     font-size: 5rem;
@@ -444,12 +428,15 @@ body {
 /* aboutMe */
 
 
+.popupBasicStyle.on{
+    display:block;
+}
 .popupBasicStyle.popupAboutMe {
     position: fixed;
     top: 170px;
     width: 900px;
     height: 580px;
-    display: none;
+    /* display: none; */
 }
 
 .popupBasicStyle.popupAboutMe.on {
@@ -538,23 +525,118 @@ body {
 
 .popupBasicStyle.popupPopup {
     position: fixed;
+    left: 50%;
     top: 170px;
+    /* transform: translateX(-50%); */
     width: 866px;
     height: 504px;
-    /* display: none; */
 }
 
 .popupBasicStyle.popupPopup.on {
-    /* display: block; */
+    display: block;
 }
 
-.popupContents {
+.popupContents.popupPopup {
+    /* border: 1px solid blue; */
     /* position: relative; */
+    /* width: 860px; */
+    height: 462px;
+    padding: 5px 0;
 }
-
-.popupContents>.popupBackground {
-    border: 1px solid lime;
+.popupContents.popupPopup>section{
+    border: 1px solid black;
+    border-bottom: none;
+    width: 90px;
+    height: 30px;
+    margin-left: 142px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.popupContents.popupPopup>section>h4{
+    /* border: 1px solid red; */
+    height: 100%;
+    font-size: 8px;
+    font-family: 'TheJamsil';
+    font-weight: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popupTop{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+.popupTop>.popupTopLeft{
+    /* border: 1px solid red; */
+    display: flex;
+    width: 120px;
+    /* height: 20px; */
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+}
+.popupTop>.popupTopLeft>li>img{
+    height: 20px;
+}
+.popupTop>section{
     position: absolute;
-    top: 56px;
-    left: 0;
+    border: 1px solid black;
+    border-radius: 14px;
+    width: 605px;
+    height: 28px;
+    top: 9px;
+    left: calc(50% - 260px);
+}
+.popupTop>.popupTopRight{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    width: 70px;
+    justify-content: space-between;
+    margin-right: 50px;
+}
+.popupTop>.popupTopRight>li>.popupStar{
+    width: 18px;
+}
+.popupTop>.popupTopRight>li>.popupMenu{
+    height: 20px;
+}
+.popupBottom{
+    position: absolute;
+    top: 202px;
+    left: 85px;
+}
+.popupBottom>figure{
+    width: 700px;
+}
+.popupBottom>section{
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 480px;
+    height: 34px;
+    top: 140px;
+    left: calc(50% - 240px);
+}
+.popupBottom>section>img{
+    /* border: 1px solid red; */
+    height: 22px;
+    position: absolute;
+    top: 5px;
+    left: 14px;
+}
+.popupBottom>figure>svg{
+    transition: all 1s ease 0s;
+}
+.cls-1{    
+    transform: translateY(0px);
+    transition: all 1s ease 1s;
+}
+.cls-1.on{
+    /* transform: translateY(-50px); */
 }

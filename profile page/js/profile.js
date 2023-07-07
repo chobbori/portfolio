@@ -1,29 +1,100 @@
+ // 팝업 클릭드래그 움직이기
+function dragItem(target){
+  let dragItem = document.querySelector(target);
+  console.log(dragItem)
+  let container = document.querySelector(".main");
+
+  let active = false;
+  let currentX;
+  let currentY;
+  let initialX;
+  let initialY;
+  let xOffset = 0;
+  let yOffset = 0;
+
+  container.addEventListener("touchstart", dragStart, false);
+  container.addEventListener("touchend", dragEnd, false);
+  container.addEventListener("touchmove", drag, false);
+
+  container.addEventListener("mousedown", dragStart, false);
+  container.addEventListener("mouseup", dragEnd, false);
+  container.addEventListener("mousemove", drag, false);
+
+  function dragStart(e) {
+    console.log("마우스 누름");
+    console.log(e.target.parentNode);
+     if (e.type === "touchstart") {
+        initialX = e.touches[0].clientX - xOffset;
+        initialY = e.touches[0].clientY - yOffset;
+     } else {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+     }
+
+     if (e.target.parentNode === dragItem) {
+        active = true;
+     }
+  }
+
+  function dragEnd(e) {
+    console.log("마우스 뗌")
+     initialX = currentX;
+     initialY = currentY;
+
+     active = false;
+  }
+
+  function drag(e) {
+     
+     if (active) {
+        console.log("드래그 이동 중")
+        e.preventDefault();
+
+        if (e.type === "touchmove") {
+           currentX = e.touches[0].clientX - initialX;
+           currentY = e.touches[0].clientY - initialY;
+        } else {
+           currentX = e.clientX - initialX;
+           currentY = e.clientY - initialY;
+        }
+
+        xOffset = currentX;
+        yOffset = currentY;
+
+        setTranslate(currentX, currentY, dragItem);
+     }
+  }
+
+  function setTranslate(xPos, yPos, el) {
+    console.log(el)
+     el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+  }
+
+}
+
 $(document).ready(function () {
+  dragItem("#popup1")
+  dragItem("#popup2")
+  dragItem("#popup3")
+
+  
+
+
 
   // 아이콘 마우스 올리면 바뀌기 
   $(".hoverStyleSet > li").mouseover(function () {
-    let imgsrcname = $(this).children("img").attr("src")
+    let imgsrcname = $(this).find("img").attr("src")
     let changedsrcname = imgsrcname.replace(".svg", "_hover.svg")
-    $(this).children("img").attr("src", changedsrcname)
+    $(this).find("img").attr("src", changedsrcname)
   })
 
   $(".hoverStyleSet > li").mouseout(function () {
-    let imgsrcname = $(this).children("img").attr("src")
+    let imgsrcname = $(this).find("img").attr("src")
     let changedsrcname = imgsrcname.replace("_hover.svg", ".svg")
-    $(this).children("img").attr("src", changedsrcname)
+    $(this).find("img").attr("src", changedsrcname)
   })
-  $(".hoverStyleSet > li>a").mouseover(function () {
-    let imgsrcname = $(this).children("img").attr("src")
-    let changedsrcname = imgsrcname.replace(".svg", "_hover.svg")
-    $(this).children("img").attr("src", changedsrcname)
-  })
-
-  $(".hoverStyleSet > li>a").mouseout(function () {
-    let imgsrcname = $(this).children("img").attr("src")
-    let changedsrcname = imgsrcname.replace("_hover.svg", ".svg")
-    $(this).children("img").attr("src", changedsrcname)
-  })
-
+  
+ 
 
 
   // 오른쪽 상단 시간표시
@@ -63,6 +134,7 @@ $(document).ready(function () {
 
 
 
+
   // 웰컴 팝업 텍스트 효과
 
   "use strict";
@@ -89,74 +161,21 @@ $(document).ready(function () {
   // 엑스버튼 누르면 닫힘
 
   $(".popupBtnClose").click(function () {
-    $(".welcome").addClass("off")
+    $(this).parent().parent().parent().removeClass("on");
   })
 
+
+  // 팝업 열기
+  $(".popup").click(function(){
+    $("#popup3").addClass("on") 
+  })
 
   $(".aboutMe").click(function () {
-    $(".popupAboutMe").addClass("on")
-  })
-
-  $(".popupBtnClose").click(function () {
-    $(".popupAboutMe").removeClass("on")
+    $("#popup2").addClass("on")
   })
 
 
-
-  // 팝업 클릭드래그 움직이기
-
-  let draggable = ($target) => {
-
-    let isPress = false,
-      prevPosX = 0,
-      prevPosY = 0;
-
-
-    $target.onmousedown = start;
-    $target.onmouseup = end;
-
-    // 상위 영역
-    window.onmousemove = move;
-
-    function start(e) {
-      e.preventDefault()
-      prevPosX = e.clientX;
-      prevPosY = e.clientY;
-
-      isPress = true;
-      console.log(isPress)
-    }
-
-    function move(e) {
-      e.preventDefault()
-      console.log(isPress)
-      if (!isPress) return;
-
-      const posX = prevPosX - e.clientX;
-      const posY = prevPosY - e.clientY;
-
-      prevPosX = e.clientX;
-      prevPosY = e.clientY;
-
-      $target.style.left = ($target.offsetLeft - posX) + "px";
-      $target.style.top = ($target.offsetTop - posY) + "px";
-    }
-
-    function end(e) {
-      e.preventDefault()
-      isPress = false;
-    }
-  }
-
-
-
-  window.onload = () => {
-    const $target1 = document.querySelector(".welcome");
-    draggable($target1)
-
-    const $target2 = document.querySelector(".popupAboutMe");
-    // draggable($target2)
-  }
+  
 
 
   // 어바웃미 탭메뉴
@@ -186,6 +205,11 @@ $(document).ready(function () {
       tabDes.innerHTML = tabDescription[i]
     })
   }
+
+  $(`.popup`).click(function(){
+    $(`.cls-1`).addClass("on")
+    $(`.cls-1`).css(`transform`,`translateY(-50px)`)
+  })
 
 
 
