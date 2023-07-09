@@ -9,8 +9,8 @@ function dragItem(target){
   let currentY;
   let initialX;
   let initialY;
-  let xOffset = 0;
-  let yOffset = 0;
+  let xOffset = 0
+  let yOffset = 0
 
   container.addEventListener("touchstart", dragStart, false);
   container.addEventListener("touchend", dragEnd, false);
@@ -21,7 +21,7 @@ function dragItem(target){
   container.addEventListener("mousemove", drag, false);
 
   function dragStart(e) {
-    console.log("마우스 누름");
+    
     console.log(e.target.parentNode);
      if (e.type === "touchstart") {
         initialX = e.touches[0].clientX - xOffset;
@@ -37,7 +37,7 @@ function dragItem(target){
   }
 
   function dragEnd(e) {
-    console.log("마우스 뗌")
+    
      initialX = currentX;
      initialY = currentY;
 
@@ -47,7 +47,7 @@ function dragItem(target){
   function drag(e) {
      
      if (active) {
-        console.log("드래그 이동 중")
+        
         e.preventDefault();
 
         if (e.type === "touchmove") {
@@ -66,8 +66,10 @@ function dragItem(target){
   }
 
   function setTranslate(xPos, yPos, el) {
-    console.log(el)
+    // console.log(el.style.width)
      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+    //  el.style.left =  xPos + "px"
+    //  el.style.top =  yPos + "px";
   }
 
 }
@@ -76,6 +78,26 @@ $(document).ready(function () {
   dragItem("#popup1")
   dragItem("#popup2")
   dragItem("#popup3")
+  dragItem("#popup3-1")
+  dragItem("#popup3-2")
+  dragItem("#popup3-3")
+  dragItem("#popup3-4")
+  dragItem("#popup3-5")
+  dragItem("#popup3-6")
+  dragItem("#popup3-7")
+  dragItem("#popup4")
+  dragItem("#popup5")
+  dragItem("#popup6")
+  dragItem("#popup7")
+
+
+  
+  // 클릭 시 앞으로 배치되는 기능.
+  let zindex = 1;
+  $(".popupBasicStyle").click(function(){
+    zindex++
+    $(this).css("z-index",zindex)
+  })
 
   
 
@@ -94,7 +116,18 @@ $(document).ready(function () {
     $(this).find("img").attr("src", changedsrcname)
   })
   
- 
+
+  $(".underBarIcon>li").mouseover(function(){
+    let idx = $(this).index()
+    $(".ballon>ul>li").eq(idx).addClass("on")
+  })
+  $(".underBarIcon>li").mouseout(function(){
+    let idx = $(this).index()
+    $(".ballon>ul>li").eq(idx).removeClass("on")
+  })
+
+
+
 
 
   // 오른쪽 상단 시간표시
@@ -158,59 +191,102 @@ $(document).ready(function () {
   let timerTyping = setInterval(typing, 150)
 
 
+
   // 엑스버튼 누르면 닫힘
 
   $(".popupBtnClose").click(function () {
     $(this).parent().parent().parent().removeClass("on");
   })
 
+  // 팝업 패널 랜덤좌표
+  $(".ppup").each(function(){
+
+    let deviceWidth = $(window).width() - 500
+    let deviceHeight = $(window).height() - 500
+    
+    let coordX = Math.random()*deviceWidth
+    let coordY = (Math.random()*deviceHeight)+40
+    // let coordX 
+
+
+    $(this).css("left",coordX+"px")
+    $(this).css("top",coordY+"px")
+  })
+
 
   // 팝업 열기
   $(".popup").click(function(){
     $("#popup3").addClass("on") 
-  })
+    
+    setTimeout(function(){
+      for(let i=1 ; i<=7 ; i++){
+        $("#popup3-"+i).css("transition",`all 0.5s ease ${i*0.2}s`)
+        $("#popup3-"+i).addClass("on")
+      } 
+     },1000)
+
+     setTimeout(function(){
+        $(".ppup").css("transition","none")
+     },3000)
+
+    })
+
+  
 
   $(".aboutMe").click(function () {
     $("#popup2").addClass("on")
   })
+  $(".video").click(function () {
+    $("#popup4").addClass("on")
+  })
+  $(".reDesign").click(function () {
+    $("#popup6").addClass("on")
+  })
+  $(".project").click(function () {
+    $("#popup7").addClass("on")
+  })
+
+
+
+  // 스킬버튼 누르면 애니메이션 실행
+
+  $(".mySkill").click(function () {
+    $("#popup5").addClass("on")
+
+    setTimeout(function(){
+      $(".skillList>li").each(function(){
+          let list = $(this)
+          let percent = $(this).find(".per").text()
+          let count = 0
+          
+          let timer = setInterval(function(){
+            count++
+            list.find(".per").text(count)
+            list.find(".progress").css("width",count+"%")
+            if(count>=percent){
+              clearInterval(timer)
+            }
+          },10)
+        })
+    },500)
+  })
+
+
 
 
   
 
 
   // 어바웃미 탭메뉴
-  let tabTitles = document.querySelectorAll(".tabTit>li")
-  let tabDes = document.querySelector(".tabDes")
-  //     let tabDescription = [
-  //         `
-  //     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni eos at dignissimos temporibus voluptate, praesentium laudantium, odio architecto nihil sit minus quae obcaecati doloribus facere tenetur esse ut est corporis?</p>`,
-  //     `
-  //     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni eos at dignissimos temporibus voluptate, praesentium laudantium, odio architecto nihil sit minus quae obcaecati doloribus facere tenetur esse ut est corporis?</p>`,
-  //     `
-  //     <ul>
-  //         <li>des1</li>
-  //         <li>des2</li>
-  //         <li>des3</li>
-  //         <li>des4</li>
-  //     </ul>`
-  // ]
 
-  for (let i = 0; i < tabTitles.length; i++) {
-    tabTitles[i].addEventListener("click", function (e) {
-
-      for (let j = 0; j < tabTitles.length; j++) {
-        tabTitles[j].classList.remove("on")
-      }
-      this.classList.add("on")
-      tabDes.innerHTML = tabDescription[i]
+    $(".tabMenu>dt").click(function () {
+      //1.dt태그들이 on클래스가 지워져야함
+      $(".tabMenu>dt").removeClass("on")
+      //2.내가 클릭한 dt태그한테만 on클래스가 추가
+      $(this).addClass("on")
     })
-  }
 
-  $(`.popup`).click(function(){
-    $(`.cls-1`).addClass("on")
-    $(`.cls-1`).css(`transform`,`translateY(-50px)`)
-  })
-
+  
 
 
 
