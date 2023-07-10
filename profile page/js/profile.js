@@ -89,6 +89,7 @@ $(document).ready(function () {
   dragItem("#popup5")
   dragItem("#popup6")
   dragItem("#popup7")
+  dragItem("#popup8")
 
 
   
@@ -229,6 +230,11 @@ $(document).ready(function () {
         $(".ppup").css("transition","none")
      },3000)
 
+     $(".popupBottom>figure>svg path").each(function(){
+      let idx = $(this).index()
+      $(this).css("animation",`popupAnimation 1s ease ${0.1*idx}s infinite`)
+     })
+
     })
 
   
@@ -245,6 +251,10 @@ $(document).ready(function () {
   $(".project").click(function () {
     $("#popup7").addClass("on")
   })
+  $(".setting").click(function () {
+    $("#popup8").addClass("on")
+  })
+
 
 
 
@@ -288,8 +298,34 @@ $(document).ready(function () {
 
   
 
+// 배경색 바꾸기
+const btnCream = document.getElementById("btnCream");
+const btnPurple = document.getElementById("btnPurple");
+const btnGreen = document.getElementById("btnGreen");
+const btnYellow = document.getElementById("btnYellow");
+const btnPink = document.getElementById("btnPink");
 
+const mainTag = document.querySelector(".main")
 
+btnCream.addEventListener("click", (e) => {
+  mainTag.style.backgroundColor = "#f4e6d0";
+});
+
+btnPurple.addEventListener("click", (e) => {
+  mainTag.style.backgroundColor = "#d1d1f2";
+});
+
+btnGreen.addEventListener("click", (e) => {
+  mainTag.style.backgroundColor = "#cee3de";
+});
+
+btnYellow.addEventListener("click", (e) => {
+  mainTag.style.backgroundColor = "#f2f0da";
+});
+
+btnPink.addEventListener("click", (e) => {
+  mainTag.style.backgroundColor = "#f2dfe6";
+});
 
 
 

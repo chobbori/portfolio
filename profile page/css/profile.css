@@ -669,12 +669,15 @@ body {
     top: 5px;
     left: 14px;
 }
-.popupBottom>figure>svg path:nth-of-type(1){
-   animation: popupAnimation 1s ease 0s;   
+/* .popupBottom>figure>svg path:nth-of-type(1){
+   animation: popupAnimation 1s ease 0s infinite;   
 }
 .popupBottom>figure>svg path:nth-of-type(2){
+    animation: popupAnimation 1s ease 0.1s infinite;   
+} */
+/* .popupBottom>figure>svg path:nth-of-type(2){
     animation: popupAnimation 1s ease 0.1s;   
- }
+ } */
 
 /* popup -n*/
 .popupBasicStyle.popupPopup-1 {
@@ -798,8 +801,8 @@ body {
 /* Video */
 .popupBasicStyle.popupVideo {
     position: fixed;
-    left: calc(50% - 433px);
-    top: calc(50% - 252px);
+    left: calc(50% - 400px);
+    top: calc(50% - 322px);
     width: 800px;
     height: 644px;
     overflow: hidden;
@@ -858,11 +861,27 @@ body {
     width: 0%;
     height: 40px;
     position: relative;
-    background: red;
+    /* background: red; */
     min-width: 40px;
     border-radius: 23px;
     border: 1px solid #000;
 }
+.skillPhoto{
+    background: #e2bf6f;
+}
+.skillIllu{
+    background: #dbafc8;
+}
+.skillHTML{
+    background: #7dba9d;
+}
+.skillCSS{
+    background: #92bbcc;
+}
+.skillJA{
+    background: #db917d;
+}
+
 
 .popupMySkill>ul>li>div>img {
     width: 87px;
@@ -878,12 +897,9 @@ body {
 .skillList>li{
     margin-bottom:40px;
 }
-.skillList>li>div{
-    background: #E2BF6F;
-}
 
 
-/* 리디자인 */
+/* ReDesign */
 .popupBasicStyle.popupRedesign {
     position: fixed;
     left: calc(50% - 587px);
@@ -945,4 +961,98 @@ body {
 }
 .popupContents.popupProject>ul>li>p{
     text-align: center;
+}
+
+
+/* setting */
+.popupBasicStyle.popupSettig {
+    position: fixed;
+    left: calc(50% - 350px);
+    top: calc(50% - 223px);
+    width: 700px;
+    height: 446px;
+}
+
+.popupBasicStyle.popupSettig.on {
+    display: block;
+}
+
+.popupContents.popupSettig {
+    /* border: 1px solid blue; */
+    height: 406px;
+    width: 630px;
+    padding: 0;
+    position: absolute;
+    top: 40px;
+    left: calc(50% - 315px);
+}
+.popupContents.popupSettig>h1{
+    font-size: 1.5rem;
+    text-align: center;
+    margin:10px 0 20px 0;
+}
+.popupContents.popupSettig>.border{
+    width: 100%;
+    border-bottom: 1px solid black;
+    align-items: center;
+}
+.settingBackground{
+    display: flex;
+    margin: 0 auto;
+    margin: 30px;
+}
+.settingBackground>section{
+    display: flex;
+    margin-left: 50px;
+}
+.settingBackground>section>div{
+    border: 1px solid black;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+.settingBackground>section>div:nth-of-type(1){
+    background: #f4e6d0;
+}
+.settingBackground>section>div:nth-of-type(2){
+    background: #d1d1f2;
+}
+.settingBackground>section>div:nth-of-type(3){
+    background: #cee3de;
+}
+.settingBackground>section>div:nth-of-type(4){
+    background: #f2f0da;
+}
+.settingBackground>section>div:nth-of-type(5){
+    background: #f2dfe6;
+}
+.settingScreen{
+    display: flex;
+    margin: 0 auto;
+    margin: 30px;
+}
+.settingScreen>section{
+    border: 1px solid black;
+    width: 291px;
+    height: 38px;
+    border-radius: 22px;
+    background: #ededed;
+    margin-left: 82px;
+    position: relative;
+}
+.settingScreenBtn{
+    border: 1px solid black;
+    width: 42px;
+    height: 42px;
+    background: #bbdfff;
+    border-radius: 50%;
+    position: absolute;
+    top: -3px;
+    left: 0px;
+}
+.settingFillter{
+    display: flex;
+    margin: 0 auto;
+    margin: 30px;
 }
